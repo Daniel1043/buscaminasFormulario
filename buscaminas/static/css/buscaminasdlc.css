@@ -1,0 +1,71 @@
+*{
+    font-family:cursive;
+}
+
+body{
+   background-color: rgb(250, 128, 114);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.creacionde_tabla{
+	margin-left:20px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-family:courier,arial,helvética;
+    background: rgb(60,142,190);
+    color: #ffffffa5;
+    font-weight: bold;
+}
+
+
+.creacionde_tablar{
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+
+/* TABLA PAGINA */
+
+.cuerpo_tablas{
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    overflow-y:scroll ;
+}
+
+
+.boton_forma{
+    border-radius: 20px;
+    padding: 15px;
+    background: #FF00FF;
+    color: #ffffffa5;
+    font-weight: bold;
+	margin-left:80px;
+}
+ 
+
+
+table{
+    color: #fff;
+    margin: 20px 0px;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border: 3px solid purple;
+   
+}
+
+table td{
+    border: 2px solid #fff;
+	
+}
+
+h1{
+	color:rgb(0, 128, 128);
+	font-size:30px;
+	font-family:'Times New Roman', Times, serif;
+}

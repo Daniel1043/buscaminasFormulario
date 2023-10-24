@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/buscaminasdlc.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:wght@500&display=swap"
+      rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body class="cuerpo_tablas">
+  
+  <h1>CREAR TABLAS CON LOS SIGUIENTES DATOS</h1>
+    <form class="form_crear_tablero" action="{% url 'crear_tablero' %}" method="get">
+      {% for field in table_form %}
+      <div>
+        <label for="{{ field.name }}">{{ field.label }}</label>
+        {{ field }}
+      </div>
+	  <br>
+      {% endfor %}
+		<br>
+      <button  type="submit" class="boton_forma">Crear tabla</button>
+    </form>
+
+    <div class="container_table">
+      {% if columna and fila %}
+
+     <br>
+	 
+    <table border="1">
+      {% for row in fila %}
+     
+      <tr>
+        {% for col in columna %}
+        <td>
+			
+        💣
+		 
+
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+
+    {% endif %}
+    </div>
+    
+  </body>
+</html>
