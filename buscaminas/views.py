@@ -9,8 +9,8 @@ def index(req):
 
 
 def form_tablero(request):
-    if request.method == 'GET':
-        table_form = tableForm(request.GET)
+    if request.method == 'POST':
+        table_form = tableForm(request.POST)
         table_form_v = tableForm()
         if table_form.is_valid():
            
@@ -19,10 +19,12 @@ def form_tablero(request):
 
             filas_list = range(fila)
             columnas_list = range(columna)
-            
+           
+
             return render(request, 'tablas/Tablas.html', {'columna': columnas_list , "fila": filas_list , "table_form":table_form_v})
+
     else:
-        table_form = tableForm()
+         table_form = tableForm()
 
     return render(request, 'tablas/Tablas.html', {'table_form': table_form})
 # Create your views here.
