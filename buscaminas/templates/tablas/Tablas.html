@@ -22,7 +22,7 @@
 
       {{table_form.as_p}}
       
-	
+      
 		<br>
       <button  type="submit" class="boton_forma">Crear tabla</button>
     </form>
@@ -33,17 +33,17 @@
      <br>
 	 
     <table border="1">
-      {% for row in fila %}
-     
+      {% for fila in fila %}
       <tr>
-        {% for col in columna %}
-        <td>
-			
-        💣
-		 
-
-        </td>
-        {% endfor %}
+          {% for columna in columna %}
+          <td>
+              {% if casilla  %}
+                  <div class="mina">M</div>
+              {% else %}
+                  <div class="no_mina">N</div>
+              {% endif %}
+          </td>
+          {% endfor %}
       </tr>
       {% endfor %}
     </table>

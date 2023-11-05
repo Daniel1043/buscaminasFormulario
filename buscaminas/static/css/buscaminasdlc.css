@@ -69,3 +69,10 @@ h1{
 	font-size:30px;
 	font-family:'Times New Roman', Times, serif;
 }
+
+.mina{
+    color: red;
+}
+.no_mina{
+   color: blue;
+}
