@@ -1,29 +1,25 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .forms import tableForm
-from django.shortcuts import get_object_or_404
-
+from .minas_bomba import  Casilla, Tablero
 
 def index(request):
     return render(request, 'tablas/index.html')
 
 def form_tablero(request):
+    tablero = None
     if request.method == 'POST':
-        table_form = tableForm(request.POST)
-        table_form_v = tableForm()
+        form = tableForm(request.POST)
 
-        if table_form.is_valid():
-            columna = int(table_form.cleaned_data['columna'])
-            fila = int(table_form.cleaned_data['fila'])
-            minas = int(table_form.cleaned_data['minas'])
-
-            filas_list = range(fila)
-            columnas_list = range(columna)
-            minas_list = range(minas)
-
-            return render(request, 'tablas/Tablas.html', {'columna': columnas_list, 'fila': filas_list, 'table_form': table_form_v})
-
+        if form.is_valid():
+            filas = form.cleaned_data['fila']
+            columnas = form.cleaned_data['columna']
+            num_minas = form.cleaned_data['minas']
+                # Crea una instancia de Tablero y genera el tablero con minas
+            tablero = Tablero(filas, columnas, num_minas).mostrar_tablero()
     else:
-        table_form = tableForm()
+        form = tableForm()
+    if tablero is not None:
+        return render(request, 'tablas/Tablas.html', {'form': form, 'tablero': tablero})
+    else:
+        return render(request, 'tablas/crear_tabla.html', {'form': form})
 
-    return render(request, 'tablas/Tablas.html', {'table_form': table_form})
